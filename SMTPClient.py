@@ -20,6 +20,7 @@ mailserver = 'smtp.gmail.com'
 
 # Make a TCP connection with mailserver and receive the server
 #response
+tcpSocket=socket(AF_INET, SOCK_STREAM)
 #check the server response and print it to the screen
 
 
@@ -30,6 +31,7 @@ heloCommand = 'ehlo [' + addr +']\r\n'
 
 
 # Send STARTTLS command and print server response.
+starttlsCommand = 'STARTTLS\r\n'
 # wrap the socket you created earlier in a ssl context. Assuming you
 # named you socket, clientSocket, you can use the following two lines
 # to do so:
@@ -37,11 +39,12 @@ heloCommand = 'ehlo [' + addr +']\r\n'
 
 
 context = ssl.create_default_context()
-clientSocket = context.wrap_socket(clientSocket,
-server_hostname=mailserver)
+clientSocket = context.wrap_socket(clientSocket, server_hostname=mailserver)
 
 
 # Send DATA command and print server response.
 # Send message data.
 # Message ends with a single period.
+message = msg + endmsg
 # Send QUIT command and get server response.
+quitCommand = 'QUIT\r\n'
