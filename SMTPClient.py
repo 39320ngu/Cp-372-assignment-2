@@ -48,3 +48,24 @@ clientSocket = context.wrap_socket(clientSocket, server_hostname=mailserver)
 message = msg + endmsg
 # Send QUIT command and get server response.
 quitCommand = 'QUIT\r\n'
+
+
+
+"""
+S: 220 hamburger.edu
+C:HELO crepes.fr
+S:250 Hello crepes.fr, pleased to meet you
+C:MAIL FROM: <alice@crepes.fr>
+S:250 alice@crepes.fr... Sender ok
+C:RCPT TP: ,bob.hamburder.edu>
+S:250 bob@hamburger.edu ... Recipient ok
+C:DATA
+S:353 Enter mail, end with"." in a line by itself
+C:Do you like ketchup?
+C:How about pickles?
+C:.
+S:250 Message accepted for delivery
+C:QUIT
+S:221 hamburger.edu closing connection
+
+"""
