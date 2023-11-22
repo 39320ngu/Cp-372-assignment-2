@@ -25,6 +25,26 @@ def recieve_msg():
     except timeout:
         pass
 
+"""
+S: 220 hamburger.edu
+C:HELO crepes.fr
+S:250 Hello crepes.fr, pleased to meet you
+C:MAIL FROM: <alice@crepes.fr>
+S:250 alice@crepes.fr... Sender ok
+C:RCPT TP: ,bob.hamburder.edu>
+S:250 bob@hamburger.edu ... Recipient ok
+C:DATA
+S:353 Enter mail, end with"." in a line by itself
+C:Do you like ketchup?
+C:How about pickles?
+C:.
+S:250 Message accepted for delivery
+C:QUIT
+S:221 hamburger.edu closing connection
+
+"""
+
+
 msg = "\r\n I love computer networks!"
 endmsg = "\r\n.\r\n"
 # Choose a mail server (e.g. Google mail server)
@@ -87,6 +107,7 @@ want to read more about BASE64 encoding, look here.
 
 """
 
+authorization = auth_plain()
 
 
 # Send DATA command and print server response.
@@ -102,22 +123,3 @@ message = msg + endmsg
 quitCommand = 'QUIT\r\n'
 
 
-
-"""
-S: 220 hamburger.edu
-C:HELO crepes.fr
-S:250 Hello crepes.fr, pleased to meet you
-C:MAIL FROM: <alice@crepes.fr>
-S:250 alice@crepes.fr... Sender ok
-C:RCPT TP: ,bob.hamburder.edu>
-S:250 bob@hamburger.edu ... Recipient ok
-C:DATA
-S:353 Enter mail, end with"." in a line by itself
-C:Do you like ketchup?
-C:How about pickles?
-C:.
-S:250 Message accepted for delivery
-C:QUIT
-S:221 hamburger.edu closing connection
-
-"""
