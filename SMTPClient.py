@@ -68,13 +68,18 @@ recieve_msg()
 # Send HELO command to the server and print server response. It should be ehlo not helo
 
 heloCommand = 'ehlo [' + addr +']\r\n'
-
-
-    
+  
 send_msg(heloCommand, True)
+recieve_msg()
+
+
 
 # Send STARTTLS command and print server response.
 starttlsCommand = 'STARTTLS\r\n'
+
+send_msg(starttlsCommand, True)
+recieve_msg()
+
 
 # wrap the socket you created earlier in a ssl context. Assuming you
 # named you socket, clientSocket, you can use the following two lines
@@ -106,13 +111,17 @@ password are not sent as plain text over the Internet - they are always BASE64 e
 want to read more about BASE64 encoding, look here.
 
 """
+Command = 'AUTH PLAIN\r\n'
 
+send_msg(Command, True)
 authorization = auth_plain()
 
 
 # Send DATA command and print server response.
 # Send message data.
 # Message ends with a single period.
+
+
 message = msg + endmsg
 
 
