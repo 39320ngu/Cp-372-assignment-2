@@ -58,7 +58,7 @@ port = 587
 # Make a TCP connection with mailserver and receive the server
 #response
 tcpSocket=socket(AF_INET, SOCK_STREAM)
-tcpSocket.connect(mailserver)
+tcpSocket.connect(mailserver, port)
 
 tcpSocket.settimeout(10)
 
@@ -134,7 +134,14 @@ send_msg("DATA", True)
 
 message = msg + endmsg
 
-send_msg(message, True)
+send_msg(f"MAIL FROM:<{email}>")
+send_msg(f"RCPT TO:<{email}>")
+send_msg(f"DATA")
+send_msg(f"SUBJECT: Test email sent\r\n", expect_return_msg=False)
+send_msg(message, False)
+send_msg(".")
+
+
 
 
 
