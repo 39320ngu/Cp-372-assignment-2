@@ -44,7 +44,7 @@ S:221 hamburger.edu closing connection
 
 """
 email ='s69541071@gmail.com'
-password = 'Itsaburner!'
+password = 'tvfy xkry bsii offd'
 
 msg = "\r\n I love computer networks!"
 endmsg = "\r\n.\r\n"
@@ -134,7 +134,7 @@ send_msg("DATA", True)
 
 message = msg + endmsg
 
-
+send_msg(message, True)
 
 
 
@@ -142,3 +142,4 @@ message = msg + endmsg
 quitCommand = 'QUIT\r\n'
 
 
+send_msg(quitCommand, True)
