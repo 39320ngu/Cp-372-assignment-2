@@ -43,12 +43,16 @@ C:QUIT
 S:221 hamburger.edu closing connection
 
 """
-
+email ='s69541071@gmail.com'
+password = 'Itsaburner!'
 
 msg = "\r\n I love computer networks!"
 endmsg = "\r\n.\r\n"
 # Choose a mail server (e.g. Google mail server)
 mailserver = 'smtp.gmail.com'
+
+port = 587
+
 
 
 # Make a TCP connection with mailserver and receive the server
@@ -114,12 +118,18 @@ want to read more about BASE64 encoding, look here.
 Command = 'AUTH PLAIN\r\n'
 
 send_msg(Command, True)
-authorization = auth_plain()
+authorization = auth_plain(email, password)
+
+send_msg(authorization, True)
 
 
 # Send DATA command and print server response.
 # Send message data.
 # Message ends with a single period.
+
+
+send_msg("DATA", True)
+
 
 
 message = msg + endmsg
