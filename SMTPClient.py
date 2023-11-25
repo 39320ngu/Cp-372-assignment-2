@@ -1,3 +1,6 @@
+#Student Daniel Nguyen 201001070
+
+
 #import libraries needed for communication with a secure email server
 from socket import *
 import ssl
@@ -118,15 +121,14 @@ send_msg(authorization, True)
 # Message ends with a single period.
 
 message = msg + endmsg
-print(" message command")
 
 
-send_msg(f"MAIL FROM:<{email}>")
-send_msg(f"RCPT TO:<{email}>")
-send_msg(f"DATA")
-send_msg(f"SUBJECT: Test email sent", expect_return_msg=False)
+send_msg(f"MAIL FROM:<{email}>\r\n")
+send_msg(f"RCPT TO:<{email}>\r\n")
+send_msg(f"DATA\r\n")
+send_msg(f"SUBJECT: Test email sent\r\n", expect_return_msg=False)
 send_msg(message, False)
-send_msg(".")
+
 
 
 
