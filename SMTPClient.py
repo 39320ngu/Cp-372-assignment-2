@@ -26,6 +26,8 @@ def recieve_msg():
         pass
 
 
+
+
 email ='s69541071@gmail.com'
 password = 'tvfy xkry bsii offd'
 
@@ -100,12 +102,14 @@ want to read more about BASE64 encoding, look here.
 """
 Command = 'AUTH PLAIN\r\n'
 
+byte_user = encode_base64(auth_plain(email, password).encode())
+
+authorization = 'AUTH PLAIN ' + byte_user
 
 
-send_msg(Command, True)
-authorization = auth_plain(email, password)
 
 
+print("Sending Authorization")
 send_msg(authorization, True)
 
 
@@ -113,20 +117,17 @@ send_msg(authorization, True)
 # Send message data.
 # Message ends with a single period.
 
-
+message = msg + endmsg
 print(" message command")
 
-message = msg + endmsg
-send_msg(message, True)
 
-"""
 send_msg(f"MAIL FROM:<{email}>")
 send_msg(f"RCPT TO:<{email}>")
 send_msg(f"DATA")
 send_msg(f"SUBJECT: Test email sent", expect_return_msg=False)
 send_msg(message, False)
 send_msg(".")
-"""
+
 
 
 
