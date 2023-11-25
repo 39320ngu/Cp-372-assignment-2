@@ -28,9 +28,6 @@ def recieve_msg():
     except timeout:
         pass
 
-
-
-
 email ='s69541071@gmail.com'
 password = 'tvfy xkry bsii offd'
 
@@ -40,10 +37,6 @@ endmsg = "\r\n.\r\n"
 
 port = 587
 mailserver = ('smtp.gmail.com', port)
-
-
-
-
 
 # Make a TCP connection with mailserver and receive the server
 #response
@@ -128,11 +121,6 @@ send_msg(f"RCPT TO:<{email}>\r\n")
 send_msg(f"DATA\r\n")
 send_msg(f"SUBJECT: Test email sent\r\n", expect_return_msg=False)
 send_msg(message, False)
-
-
-
-
-
 
 # Send QUIT command and get server response.
 quitCommand = 'QUIT'
