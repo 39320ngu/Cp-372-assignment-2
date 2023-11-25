@@ -1,5 +1,5 @@
 #Student Daniel Nguyen 201001070
-
+#Student Trinh Thi Que Chi 000006750
 
 #import libraries needed for communication with a secure email server
 from socket import *
